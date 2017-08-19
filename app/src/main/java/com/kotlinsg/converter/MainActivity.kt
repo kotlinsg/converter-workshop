@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
@@ -38,11 +39,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun convert(from: Currency, to: Currency) {
-        api.convert(from, to) { rate, error ->
+        api.convert(from, to) { rate ->
             if (rate != null) {
-                result.text = "1 ${from.code} = $rate ${to.code}"
+                result.text = getString(R.string.result, from.code, rate, to.code)
             } else {
-                result.text = "Cannot convert ${from.code} to ${to.code}\n${error ?: ""}"
+                result.text = getString(R.string.error, from.code, to.code)
             }
             progress.visibility = View.GONE
         }
@@ -58,9 +59,15 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-private fun CharSequence.toCurrency() = Currency(this.toString())
+private fun CharSequence.toCurrency() = Currency(toString())
 
 class Currency(name: String) {
+    init {
+        if (name.length != 3) {
+            Log.w("Currency", "Wrong currency code $name")
+        }
+    }
+
     val code = name.toUpperCase()
     val infoUri = "http://www.xe.com/currency/$code"
 }

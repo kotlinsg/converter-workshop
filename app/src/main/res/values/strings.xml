@@ -3,4 +3,6 @@
     <string name="from">from</string>
     <string name="to">to</string>
     <string name="get_rate">Get rate</string>
+    <string name="result">1 %1$s = %2$f %3$s</string>
+    <string name="error">Cannot convert %1$s to %2$s</string>
 </resources>
