@@ -11,6 +11,12 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    lintOptions {
+        abortOnError false
+        disable "UnusedResources", // Unfortunately doesn't work with Kotlin in Android Gradle 2.x
+                "InvalidPackage" //False positive warning in Fuel
+    }
 }
 
 dependencies {
