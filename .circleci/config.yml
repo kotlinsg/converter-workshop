@@ -9,10 +9,15 @@ jobs:
     steps:
       - checkout
       - restore_cache:
+          key: gradle-cache-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
           key: gradle-cache
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: gradle-cache-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - save_cache:
           paths:
             - ~/.gradle
