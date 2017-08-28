@@ -5,3 +5,8 @@ Our sample android app written with Kotlin
 
 Codelab is here:
 https://docs.google.com/document/d/1K8tgjQPjghmZY-61JguZVUbqWwsUJxYkW6LeAQiE_us
+
+This branch doesn't have code except layout. 
+You can use it to write own implementation
+
+If you want to see result, please checkout [master](https://github.com/kotlinsg/converter-workshop/tree/master) branch
