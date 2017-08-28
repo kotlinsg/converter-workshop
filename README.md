@@ -1,5 +1,6 @@
 # Currency Converter
 [![Gitter chat](https://badges.gitter.im/kotlinsg/gitter.png)](https://gitter.im/kotlinsg/workshop-aug-2017)
+[![CircleCI](https://circleci.com/gh/kotlinsg/converter-workshop/tree/master.png?style=shield)](https://circleci.com/gh/kotlinsg/converter-workshop/tree/master)
 
 Our sample android app written with Kotlin
 
